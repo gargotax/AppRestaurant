@@ -59,36 +59,7 @@ namespace MioProgetto
             }
         }
 
-        public void dataContext(string connectionString, string queryString)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
 
-               // string connectionString = null;
-                SqlConnection cnn;
-
-                connectionString = (@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=mioProgetto;
-                               Integrated Security=True;Connect Timeout=30;Encrypt=False;
-                               TrustServerCertificate=False;ApplicationIntent=
-                               ReadWrite;MultiSubnetFailover=False");
-
-                cnn = new SqlConnection(connectionString);
-
-                try
-                {
-                    cnn.Open();
-                    cnn.Open();
-                    MessageBox.Show("Connection Open ! ");
-                    cnn.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Can not open connection ! ");
-                }
-            }
-        
-            
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -107,6 +78,43 @@ namespace MioProgetto
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+
+                string connectionString = null;
+                SqlConnection cnn;
+
+                connectionString = (@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=mioProgetto;
+                               Integrated Security=True;Connect Timeout=30;Encrypt=False;
+                               TrustServerCertificate=False;ApplicationIntent=
+                               ReadWrite;MultiSubnetFailover=False");
+
+                cnn = new SqlConnection(connectionString);
+
+                try
+                {
+                    cnn.Open();
+                    MessageBox.Show("Connection Open ! ");
+                    cnn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Can not open connection ! ");
+                }
+
+            }
+
+
+
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
 
         }
