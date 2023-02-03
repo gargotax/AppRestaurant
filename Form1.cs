@@ -74,7 +74,8 @@ namespace MioProgetto
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            ct_lavoratore.Enabled = false;
+            ct_turistico.Enabled = false;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,41 +83,44 @@ namespace MioProgetto
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection connection = new SqlConnection())
-            {
 
-                string connectionString = null;
-                SqlConnection cnn;
-
-                connectionString = (@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=mioProgetto;
-                               Integrated Security=True;Connect Timeout=30;Encrypt=False;
-                               TrustServerCertificate=False;ApplicationIntent=
-                               ReadWrite;MultiSubnetFailover=False");
-
-                cnn = new SqlConnection(connectionString);
-
-                try
-                {
-                    cnn.Open();
-                    MessageBox.Show("Connection Open ! ");
-                    cnn.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Can not open connection ! ");
-                }
-
-            }
-
-
-
-        }
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void sceltaMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sceltaMenu.SelectedIndex == 0)
+            {
+                listBox_lavoratori.Items.Clear();
+                listBox_turistico.Items.Clear();
+                string[] lavoratore = { "primo", "o", "secondo", "caffè", "acqua" };
+
+                for (int i = 0; i < lavoratore.Length; i++)
+                {
+                    listBox_lavoratori.Items.Add(lavoratore[i]);
+                }
+                ct_turistico.Enabled = false;
+                ct_lavoratore.Enabled = true;
+
+            }
+
+            if (sceltaMenu.SelectedIndex == 1)
+            {
+                listBox_lavoratori.Items.Clear();
+                listBox_turistico.Items.Clear();
+                string[] turistico = { "antipasti misti", "primo", "secondo", "dolce", "caffe", "acqua" };
+
+                for (int i = 0; i < turistico.Length; i++)
+                {
+                    listBox_turistico.Items.Add(turistico[i]);
+                }
+                ct_turistico.Enabled = true;
+                ct_lavoratore.Enabled = false;
+
+            }
         }
     }
 }

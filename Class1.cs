@@ -9,7 +9,7 @@ namespace MioProgetto
 {
     internal class Class1
     {
-        public void scalar(object sender, EventArgs e)
+        public void connect(object sender, EventArgs e)
         {
             string connectionstring = null;
 
@@ -18,22 +18,19 @@ namespace MioProgetto
             string sql = null;
             cnn = new SqlConnection(connectionstring);
 
-            connectionstring = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=mioProgetto;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            connectionstring = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=mioProgetto;Integrated Security=True;" +
+                              "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;" +
+                              "MultiSubnetFailover=False";
             sql = "Your SQL Statement Here like Select Count(*) from product";
 
-            try
-            {
-                cnn.Open();
-                cmd = new SqlCommand(sql, cnn);
-                Int32 count = Convert.ToInt32(cmd.ExecuteScalar());
-                cmd.Dispose();
-                cnn.Close();
-                MessageBox.Show(" No. of Rows " + count);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Can not open connection ! ");
-            }
+            cnn.Open();
+            cmd = new SqlCommand(sql, cnn);
+            var insert = "INSERT INTO dbo.restaurant(id, [data],[totale]) VALUES (@id,@data,@totale)";
+            /* using (var cmd = new SqlCommand(sql, cnn))
+             {
+             }*/
+            cnn.Close();
+
 
         }
 

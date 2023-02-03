@@ -33,8 +33,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBox_lavoratori = new System.Windows.Forms.ListBox();
+            this.listBox_turistico = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.sceltaMenu = new System.Windows.Forms.ComboBox();
@@ -95,11 +95,11 @@
             this.totale.Name = "totale";
             this.totale.Width = 125;
             // 
-            // listBox1
+            // listBox_lavoratori
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Items.AddRange(new object[] {
+            this.listBox_lavoratori.FormattingEnabled = true;
+            this.listBox_lavoratori.ItemHeight = 20;
+            this.listBox_lavoratori.Items.AddRange(new object[] {
             "Primi (a scelta): ",
             "Trofie al pesto",
             "Minestrone alla ligure ",
@@ -111,17 +111,17 @@
             "Buridda",
             "",
             "caffè"});
-            this.listBox1.Location = new System.Drawing.Point(12, 192);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(150, 224);
-            this.listBox1.TabIndex = 3;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox_lavoratori.Location = new System.Drawing.Point(12, 192);
+            this.listBox_lavoratori.Name = "listBox_lavoratori";
+            this.listBox_lavoratori.Size = new System.Drawing.Size(150, 224);
+            this.listBox_lavoratori.TabIndex = 3;
+            this.listBox_lavoratori.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // listBox2
+            // listBox_turistico
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Items.AddRange(new object[] {
+            this.listBox_turistico.FormattingEnabled = true;
+            this.listBox_turistico.ItemHeight = 20;
+            this.listBox_turistico.Items.AddRange(new object[] {
             "Antipasti misti",
             "",
             "Primi (a scelta): ",
@@ -141,10 +141,10 @@
             "Caffè",
             "\t",
             "\t"});
-            this.listBox2.Location = new System.Drawing.Point(211, 192);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(150, 224);
-            this.listBox2.TabIndex = 4;
+            this.listBox_turistico.Location = new System.Drawing.Point(211, 192);
+            this.listBox_turistico.Name = "listBox_turistico";
+            this.listBox_turistico.Size = new System.Drawing.Size(150, 224);
+            this.listBox_turistico.TabIndex = 4;
             // 
             // label1
             // 
@@ -176,6 +176,7 @@
             this.sceltaMenu.Name = "sceltaMenu";
             this.sceltaMenu.Size = new System.Drawing.Size(151, 28);
             this.sceltaMenu.TabIndex = 7;
+            this.sceltaMenu.SelectedIndexChanged += new System.EventHandler(this.sceltaMenu_SelectedIndexChanged);
             // 
             // ct_turistico
             // 
@@ -236,8 +237,8 @@
             this.Controls.Add(this.sceltaMenu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBox_turistico);
+            this.Controls.Add(this.listBox_lavoratori);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_calcola);
             this.Controls.Add(this.btn_chiudi);
@@ -259,8 +260,8 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn data;
         private DataGridViewTextBoxColumn totale;
-        private ListBox listBox1;
-        private ListBox listBox2;
+        private ListBox listBox_lavoratori;
+        private ListBox listBox_turistico;
         private Label label1;
         private Label label2;
         private ComboBox sceltaMenu;
